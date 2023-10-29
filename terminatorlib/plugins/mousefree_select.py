@@ -123,10 +123,10 @@ class MouseFreeKeyTextSelect(plugin.Plugin):
 
         #dbg("text to %s %s" % (self.to_column, self.to_row))
         txtbuf = Gtk.TextBuffer()
-        txt = self.vte.get_text_range(self.from_row, self.from_column,
-                                      self.to_row,   self.to_column)[0]
-
-        txtbuf.set_text(txt, len(txt))
+        txt = self.vte.get_text_range_format(Vte.Format.TEXT,
+                                             self.from_row, self.from_column,
+                                             self.to_row,   self.to_column)[0]
+        txtbuf.set_text(txt)
 
         textview = Gtk.TextView.new_with_buffer(txtbuf)
         textview.connect('copy-clipboard',  self.on_copy_clipboard)
