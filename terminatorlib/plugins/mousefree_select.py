@@ -60,7 +60,7 @@ class MouseFreeKeyTextSelect(plugin.Plugin):
         self.keyb.bindkey_check_config(
             [PluginKbSelKeyDn, PluginKbSelActKeyDn, '<Shift>Down'])
         self.keyb.bindkey_check_config(
-            [PluginKbSelKeySelAll, PluginKbSelActKeySelAll, '<Ctrl>a'])
+            [PluginKbSelKeySelAll, PluginKbSelActKeySelAll, '<Shift><Ctrl>s'])
 
 
     def connect_signals(self):
@@ -79,7 +79,7 @@ class MouseFreeKeyTextSelect(plugin.Plugin):
         self.keyb.unbindkey(
             [PluginKbSelKeyDn, PluginKbSelActKeyDn, '<Shift>Down'])
         self.keyb.unbindkey(
-            [PluginKbSelKeySelAll, PluginKbSelActKeySelAll, '<Ctrl>a'])
+            [PluginKbSelKeySelAll, PluginKbSelActKeySelAll, '<Shift><Ctrl>s'])
 
         #bound below
         self.keyb.unbindkey(
@@ -236,7 +236,7 @@ class MouseFreeKeyTextSelect(plugin.Plugin):
 
         if act == PluginKbSelActKeySelAll:
             self.on_sel_all_copy_clipboard()
-            return True
+            return False
 
         if act == PluginKbSelActEsc:
             self.close_select_text()
